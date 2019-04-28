@@ -3,11 +3,12 @@ package com.hendisantika.creditsales.model.applicant;
 import com.hendisantika.creditsales.model.validation.ApplicationSubmissionGroup;
 import org.springframework.format.annotation.DateTimeFormat;
 
-import javax.persistence.Embedded;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
+import javax.persistence.*;
 import javax.validation.Valid;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
+import java.util.Date;
 import java.util.Objects;
 
 /**
