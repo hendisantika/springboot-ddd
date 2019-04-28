@@ -1,4 +1,4 @@
-package com.hendisantika.creditsales.model;
+package com.hendisantika.creditsales.model.applicant;
 
 import com.hendisantika.creditsales.model.validation.ApplicationSubmissionGroup;
 
