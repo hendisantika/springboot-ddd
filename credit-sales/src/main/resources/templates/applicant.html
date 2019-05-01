@@ -1,0 +1,129 @@
+<html layout:decorate="~{layout/baseLayout}" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org">
+<body>
+<th:block layout:fragment="content">
+    <div class="container theme-showcase" role="main">
+        <form action="#" method="POST"
+              th:action="@{/application/__${applicationNumber}__/applicant/__${applicantNumber}__}"
+              th:object="${applicant}">
+            <input id="databaseId" th:field="*{databaseId}" type="hidden"/>
+            <input id="applicationNumber" th:field="*{applicationNumber}" type="hidden"/>
+            <input id="applicantNumber" th:field="*{applicantNumber}" type="hidden"/>
+            <h2>Applicant <span th:text="${applicantNumber}"/></h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="customerNumber">Customer Number at Big Pug Bank</label>
+                        <input class="form-control" id="customerNumber" th:field="*{customerNumber}" type="text"/>
+                    </div>
+                </div>
+                <div class="col-md-6"></div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="firstName">First Name</label>
+                        <input class="form-control" id="firstName" th:field="*{firstName}" type="text"/>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="lastName">Last Name</label>
+                        <input class="form-control" id="lastName" th:field="*{lastName}" type="text"/>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label for="street">Street</label>
+                        <input class="form-control" id="street" th:field="*{address.street}" type="text"/>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="postCode">Postcode</label>
+                        <input class="form-control" id="postCode" th:field="*{address.postCode}" type="number"/>
+                    </div>
+                </div>
+                <div class="col-md-9">
+                    <div class="form-group">
+                        <label for="city">City</label>
+                        <input class="form-control" id="city" th:field="*{address.city}" type="text"/>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="maritalStatus">Marital Status</label>
+
+                        <select class="form-control" id="maritalStatus" th:field="*{maritalStatus}">
+                            <option value=""></option>
+                            <option th:each="maritalStatus : ${T(com.mploed.dddwithspring.creditsalesfunnel.model.applicant.MaritalStatus).values()}"
+                                    th:text="${maritalStatus.displayName}"
+                                    th:value="${maritalStatus}">
+                            </option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="birthday">Birthday (Format: dd.mm.yyyy)</label>
+                        <input class="form-control" id="birthday" th:field="*{birthday}" type="date"/>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="business">Business</label>
+
+                        <select class="form-control" id="business" th:field="*{business}">
+                            <option value=""></option>
+                            <option th:each="business : ${T(com.mploed.dddwithspring.creditsalesfunnel.model.applicant.Business).values()}"
+                                    th:text="${business.displayName}"
+                                    th:value="${business}">
+                            </option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="employment">Employment</label>
+
+                        <select class="form-control" id="employment" th:field="*{employment}">
+                            <option value=""></option>
+                            <option th:each="employment : ${T(com.mploed.dddwithspring.creditsalesfunnel.model.applicant.Employment).values()}"
+                                    th:text="${employment.displayName}"
+                                    th:value="${employment}">
+                            </option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="employer">Employer</label>
+                        <input class="form-control" id="employer" th:field="*{employer}" type="text"/>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="employedSince">Employed Since (Format: dd.mm.yyyy)</label>
+                        <input class="form-control" id="employedSince" th:field="*{employedSince}" type="date"/>
+                    </div>
+                </div>
+            </div>
+            <button class="btn btn-primary" type="submit">Save</button>
+
+        </form>
+    </div>
+</th:block>
+</body>
+</html>
