@@ -1,0 +1,114 @@
+<html layout:decorate="~{layout/baseLayout}" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org">
+<body>
+<th:block layout:fragment="content">
+
+    <div class="container theme-showcase" role="main">
+        <form method="POST" th:action="@{/application/__${applicationNumber}__/household}" th:object="${household}">
+            <input id="applicationNumber" th:field="*{applicationNumber}" type="hidden"/>
+            <input id="databaseId" th:field="*{databaseId}" type="hidden"/>
+            <h2>Household - General Information</h2>
+            <div class="form-group">
+                <label for="adults">Number of adults in household</label>
+                <input class="form-control" id="adults" th:field="*{adultsInHousehold}" type="text"/>
+            </div>
+            <div class="form-group">
+                <label for="children">Number of children in household</label>
+                <input class="form-control" id="children" th:field="*{childrenInHousehold}" type="text"/>
+            </div>
+            <div class="form-group">
+                <label for="iban">IBAN</label>
+                <input class="form-control" id="iban" th:field="*{iban}" type="text"/>
+            </div>
+            <div class="form-group">
+                <label for="bic">BIC</label>
+                <input class="form-control" id="bic" th:field="*{bic}" type="text"/>
+            </div>
+            <h2>Household - Earning Capacity</h2>
+            <div class="form-group">
+                <label for="salaryFirst">Salary of first applicant</label>
+                <input class="form-control" id="salaryFirst" th:field="*{earningCapacity.salaryFirstApplicant}"
+                       type="text"/>
+            </div>
+            <div class="form-group">
+                <label for="salarySecond">Salary of second applicant</label>
+                <input class="form-control" id="salarySecond" th:field="*{earningCapacity.salarySecondApplicant}"
+                       type="text"/>
+            </div>
+            <div class="form-group">
+                <label for="rentalFinanced">Rental income of financed property</label>
+                <input class="form-control" id="rentalFinanced"
+                       th:field="*{earningCapacity.rentalIncomeFinancedProperty}"
+                       type="text"/>
+            </div>
+            <div class="form-group">
+                <label for="rentalOther">Rental income of other properties</label>
+                <input class="form-control" id="rentalOther" th:field="*{earningCapacity.rentalIncomeOtherProperties}"
+                       type="text"/>
+            </div>
+            <div class="form-group">
+                <label for="furtherIncome">Further income</label>
+                <input class="form-control" id="furtherIncome" th:field="*{earningCapacity.furtherIncome}" type="text"/>
+            </div>
+            <div class="form-group">
+                <label for="childBenefit">Child Benefit</label>
+                <input class="form-control" id="childBenefit" th:field="*{earningCapacity.childBenefit}" type="text"/>
+            </div>
+            <div class="form-group">
+                <label for="assetsBank">Assets on bank accounts</label>
+                <input class="form-control" id="assetsBank" th:field="*{earningCapacity.assetsOnBankAccounts}"
+                       type="text"/>
+            </div>
+            <div class="form-group">
+                <label for="assetsOther">Other assets</label>
+                <input class="form-control" id="assetsOther" th:field="*{earningCapacity.assetsOther}" type="text"/>
+            </div>
+            <h2>Household - Monthly Expenses</h2>
+            <div class="form-group">
+                <label for="healthFirst">Health insurance of first applicant</label>
+                <input class="form-control" id="healthFirst" th:field="*{monthlyExpenses.healthInsuranceFirstApplicant}"
+                       type="text"/>
+            </div>
+            <div class="form-group">
+                <label for="healthSecond">Health insurance of second applicant</label>
+                <input class="form-control" id="healthSecond"
+                       th:field="*{monthlyExpenses.healthInsuranceSecondApplicant}"
+                       type="text"/>
+            </div>
+            <div class="form-group">
+                <label for="remainderDebt">Other loans: Remainder of debt</label>
+                <input class="form-control" id="remainderDebt" th:field="*{monthlyExpenses.otherLoansRemainderOfDebt}"
+                       type="text"/>
+            </div>
+            <div class="form-group">
+                <label for="monthlyLoanPayment">Other loans: monthly Repayments</label>
+                <input class="form-control" id="monthlyLoanPayment"
+                       th:field="*{monthlyExpenses.otherLoansMonthlyRepayments}"
+                       type="text"/>
+            </div>
+            <div class="form-group">
+                <label for="costOfLiving">Cost Of Living</label>
+                <input class="form-control" id="costOfLiving" th:field="*{monthlyExpenses.costOfLiving}" type="text"/>
+            </div>
+            <div class="form-group">
+                <label for="rent">Rent</label>
+                <input class="form-control" id="rent" th:field="*{monthlyExpenses.rent}" type="text"/>
+            </div>
+
+            <div class="form-group">
+                <div class="checkbox">
+                    <label>
+                        <input id="rentNotApplicable" th:field="*{monthlyExpenses.rentNotApplicableInFuture}"
+                               type="checkbox"/>
+                        Rent not applicable in the future
+                    </label>
+                </div>
+            </div>
+
+            <button class="btn btn-primary" type="submit">Save</button>
+
+        </form>
+    </div>
+</th:block>
+</body>
+</html>
