@@ -1,0 +1,233 @@
+<!DOCTYPE HTML>
+<html layout:decorate="~{layout/baseLayout}" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org">
+<body>
+<th:block layout:fragment="content">
+    <div class="container theme-showcase" role="main">
+        <form method="POST" th:action="@{/application/__${applicationNumber}__/realEstateProperty}"
+              th:object="${realEstateProperty}">
+            <input id="applicationNumber" th:field="*{applicationNumber}" type="hidden"/>
+            <input id="databaseId" th:field="*{databaseId}" type="hidden"/>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <h2>Real Estate Property</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-10">
+                    <div class="form-group">
+                        <label for="street">Street</label>
+                        <input class="form-control" id="street" th:field="*{street}" type="text"/>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label for="housenumber">Housenumber</label>
+                        <input class="form-control" id="housenumber" th:field="*{houseNumber}" type="number"/>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label for="postCode">Postcode</label>
+                        <input class="form-control" id="postCode" th:field="*{postCode}" type="text"/>
+                    </div>
+                </div>
+                <div class="col-md-10">
+                    <div class="form-group">
+                        <label for="city">City</label>
+                        <input class="form-control" id="city" th:field="*{city}" type="text"/>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="yearConstruction">Year of construction</label>
+                        <input class="form-control" id="yearConstruction" th:field="*{yearOfConstruction}"
+                               type="number"/>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="livingSpace">Living space in s qm</label>
+                        <input class="form-control" id="livingSpace" th:field="*{livingSpaceSqm}" type="number"/>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="landAreaSqm">Land area in s qm</label>
+                        <input class="form-control" id="landAreaSqm" th:field="*{landAreaSqm}" type="number"/>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="typeOfUse">Type of use</label>
+
+                        <select class="form-control" id="typeOfUse" th:field="*{typeOfUse}">
+                            <option value=""></option>
+                            <option th:each="typeOfUse : ${T(com.mploed.dddwithspring.creditsalesfunnel.model.realEstate.TypeOfUse).values()}"
+                                    th:text="${typeOfUse.displayName}"
+                                    th:value="${typeOfUse}">
+                            </option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="objectType">Object type</label>
+
+                        <select class="form-control" id="objectType" th:field="*{objectType}">
+                            <option value=""></option>
+                            <option th:each="objectType : ${T(com.mploed.dddwithspring.creditsalesfunnel.model.realEstate.ObjectType).values()}"
+                                    th:text="${objectType.displayName}"
+                                    th:value="${objectType}">
+                            </option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="usageOfLoan">Usage of loan</label>
+
+                        <select class="form-control" id="usageOfLoan" th:field="*{usageOfLoan}">
+                            <option value=""></option>
+                            <option th:each="usageOfLoan : ${T(com.mploed.dddwithspring.creditsalesfunnel.model.realEstate.UsageOfLoan).values()}"
+                                    th:text="${usageOfLoan.displayName}"
+                                    th:value="${usageOfLoan}">
+                            </option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="interior">Interior</label>
+
+                        <select class="form-control" id="interior" th:field="*{interior}">
+                            <option value=""></option>
+                            <option th:each="interior : ${T(com.mploed.dddwithspring.creditsalesfunnel.model.realEstate.Interior).values()}"
+                                    th:text="${interior.displayName}"
+                                    th:value="${interior}">
+                            </option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="attic">Attic</label>
+
+                        <select class="form-control" id="attic" th:field="*{attic}">
+                            <option value=""></option>
+                            <option th:each="attic : ${T(com.mploed.dddwithspring.creditsalesfunnel.model.realEstate.Attic).values()}"
+                                    th:text="${attic.displayName}"
+                                    th:value="${attic}">
+                            </option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="basement">Basement</label>
+
+                        <select class="form-control" id="basement" th:field="*{basement}">
+                            <option value=""></option>
+                            <option th:each="basement : ${T(com.mploed.dddwithspring.creditsalesfunnel.model.realEstate.Basement).values()}"
+                                    th:text="${basement.displayName}"
+                                    th:value="${basement}">
+                            </option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="construction">Construction</label>
+
+                        <select class="form-control" id="construction" th:field="*{construction}">
+                            <option value=""></option>
+                            <option th:each="construction : ${T(com.mploed.dddwithspring.creditsalesfunnel.model.realEstate.Construction).values()}"
+                                    th:text="${construction.displayName}"
+                                    th:value="${construction}">
+                            </option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="lastModernization">Date of last modernization</label>
+                        <input class="form-control" id="lastModernization" th:field="*{lastModernization}" type="date"/>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="numberOfFloors">Number of floors</label>
+                        <input class="form-control" id="numberOfFloors" th:field="*{numberOfFloors}" type="number"/>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label for="features">Features</label><br/>
+                        <label class="checkbox-inline" id="features"
+                               th:each="feature : ${T(com.mploed.dddwithspring.creditsalesfunnel.model.realEstate.Feature).values()}">
+                            <input id="feature" th:field="*{features}" th:value="${feature}" type="checkbox"> <span
+                                th:text="${feature.displayName}"/>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <h2>Additional information for apartments</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="numberOfApartmentsInHouse">Number of apartments in house</label>
+                        <input class="form-control" id="numberOfApartmentsInHouse"
+                               th:field="*{apartmentInformation.numberOfApartmentsInHouse}" type="number"/>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="nameOfApartment">Name or number of apartment</label>
+                        <input class="form-control" id="nameOfApartment"
+                               th:field="*{apartmentInformation.nameOfApartment}" type="text"/>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="apartmentLocation">Location of apartment</label>
+
+                        <select class="form-control" id="apartmentLocation"
+                                th:field="*{apartmentInformation.apartmentLocation}">
+                            <option value=""></option>
+                            <option th:each="apartmentLocation : ${T(com.mploed.dddwithspring.creditsalesfunnel.model.realEstate.ApartmentLocation).values()}"
+                                    th:text="${apartmentLocation.displayName}"
+                                    th:value="${apartmentLocation}">
+                            </option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+
+            <button class="btn btn-primary" type="submit">Save</button>
+
+        </form>
+    </div>
+</th:block>
+</body>
+</html>
