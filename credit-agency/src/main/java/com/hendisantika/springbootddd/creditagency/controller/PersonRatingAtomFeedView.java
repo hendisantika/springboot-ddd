@@ -1,14 +1,15 @@
 package com.hendisantika.springbootddd.creditagency.controller;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.hendisantika.springbootddd.creditagency.model.PersonRating;
 import com.hendisantika.springbootddd.creditagency.repository.PersonRatingRepository;
-import com.rometools.rome.feed.atom.Content;
-import com.rometools.rome.feed.atom.Feed;
-import com.rometools.rome.feed.atom.Link;
-import com.rometools.rome.feed.atom.Person;
+import com.rometools.rome.feed.atom.*;
 import com.rometools.rome.feed.synd.SyndPerson;
+import org.springframework.data.domain.Sort;
 import org.springframework.web.servlet.view.feed.AbstractAtomFeedView;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -53,6 +54,35 @@ public class PersonRatingAtomFeedView extends AbstractAtomFeedView {
     private String baseUrl(HttpServletRequest request) {
         return String.format("%s://%s:%d%s/", request.getScheme(), request.getServerName(), request.getServerPort(),
                 request.getContextPath());
+    }
+
+    @Override
+    protected List<Entry> buildFeedEntries(Map<String, Object> model, HttpServletRequest request,
+                                           HttpServletResponse response) throws Exception {
+
+        List<Entry> entries = new ArrayList<Entry>();
+        ObjectMapper mapper = new ObjectMapper();
+
+        for (PersonRating personRating : personRatingRepository.findAll(new Sort(Sort.Direction.DESC, "lastUpdated"))) {
+            Entry entry = new Entry();
+            entry.setId("https://github.com/mploed/ddd-with-spring/person-rating/" + personRating.getId());
+            entry.setUpdated(personRating.getLastUpdated());
+            entry.setTitle("Person Rating " + personRating.getId());
+
+            List<Content> contents = new ArrayList<Content>();
+            Content content = new Content();
+            content.setSrc(baseUrl(request) + "rating/rest/" + personRating.getId());
+            content.setType("application/json");
+
+            contents.add(content);
+            entry.setContents(contents);
+            Content summary = new Content();
+            summary.setValue(mapper.writeValueAsString(personRating));
+            entry.setSummary(summary);
+            entries.add(entry);
+        }
+
+        return entries;
     }
 
 }
