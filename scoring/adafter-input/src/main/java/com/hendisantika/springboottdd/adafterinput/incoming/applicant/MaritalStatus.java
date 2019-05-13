@@ -1,4 +1,4 @@
-package com.hendisantika.springboottdd.adafterinput.incoming;
+package com.hendisantika.springboottdd.adafterinput.incoming.applicant;
 
 /**
  * Created by IntelliJ IDEA.
