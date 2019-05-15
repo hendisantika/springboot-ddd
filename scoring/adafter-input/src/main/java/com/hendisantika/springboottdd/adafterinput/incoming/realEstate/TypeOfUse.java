@@ -1,4 +1,4 @@
-package com.hendisantika.springboottdd.adafterinput.realEstate;
+package com.hendisantika.springboottdd.adafterinput.incoming.realEstate;
 
 /**
  * Created by IntelliJ IDEA.

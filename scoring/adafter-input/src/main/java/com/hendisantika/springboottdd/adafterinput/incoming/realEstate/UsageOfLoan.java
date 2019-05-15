@@ -1,4 +1,4 @@
-package com.hendisantika.springboottdd.adafterinput.realEstate;
+package com.hendisantika.springboottdd.adafterinput.incoming.realEstate;
 
 /**
  * Created by IntelliJ IDEA.
@@ -6,17 +6,18 @@ package com.hendisantika.springboottdd.adafterinput.realEstate;
  * User: hendisantika
  * Email: hendisantika@gmail.com
  * Telegram : @hendisantika34
- * Date: 2019-05-15
- * Time: 04:32
+ * Date: 2019-05-16
+ * Time: 06:33
  */
-public enum Basement {
-    NOT_PRESENT("Not present"),
-    PARTLY_DEVELOPED("Partly developed"),
-    FULLY_DEVELOPED("Fully developed");
+public enum UsageOfLoan {
+    PURCHASE("Purchase"),
+    CONSTRUCTION("Construction"),
+    MODERNIZATION("Modernization"),
+    OTHER("Other");
 
     private final String displayName;
 
-    Basement(String displayName) {
+    UsageOfLoan(String displayName) {
         this.displayName = displayName;
     }
 

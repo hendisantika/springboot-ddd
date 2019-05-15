@@ -1,4 +1,4 @@
-package com.hendisantika.springboottdd.adafterinput.realEstate;
+package com.hendisantika.springboottdd.adafterinput.incoming.realEstate;
 
 /**
  * Created by IntelliJ IDEA.
@@ -7,16 +7,17 @@ package com.hendisantika.springboottdd.adafterinput.realEstate;
  * Email: hendisantika@gmail.com
  * Telegram : @hendisantika34
  * Date: 2019-05-16
- * Time: 06:30
+ * Time: 06:31
  */
-public enum Interior {
-    STANDARD("Standard"),
-    LUXURY("Luxury"),
-    SIMPLE("Simple");
+public enum ObjectType {
+    SEMI_DETACHED_HOUSE("Semi detached house"),
+    ROW_HOUSE("Row house"),
+    DETACHED_HOUSE("Detached house"),
+    APARTMENT("Apartment");
 
     private final String displayName;
 
-    Interior(String displayName) {
+    ObjectType(String displayName) {
         this.displayName = displayName;
     }
 

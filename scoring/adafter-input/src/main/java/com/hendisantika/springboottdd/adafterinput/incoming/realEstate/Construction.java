@@ -1,4 +1,4 @@
-package com.hendisantika.springboottdd.adafterinput.realEstate;
+package com.hendisantika.springboottdd.adafterinput.incoming.realEstate;
 
 /**
  * Created by IntelliJ IDEA.
@@ -6,18 +6,17 @@ package com.hendisantika.springboottdd.adafterinput.realEstate;
  * User: hendisantika
  * Email: hendisantika@gmail.com
  * Telegram : @hendisantika34
- * Date: 2019-05-16
- * Time: 06:33
+ * Date: 2019-05-15
+ * Time: 04:32
  */
-public enum UsageOfLoan {
-    PURCHASE("Purchase"),
-    CONSTRUCTION("Construction"),
-    MODERNIZATION("Modernization"),
-    OTHER("Other");
+public enum Construction {
+    PREFABRICATED_HOUSE("Prefabricated house"),
+    WOOD("Wood"),
+    STONE("Stone");
 
     private final String displayName;
 
-    UsageOfLoan(String displayName) {
+    Construction(String displayName) {
         this.displayName = displayName;
     }
 

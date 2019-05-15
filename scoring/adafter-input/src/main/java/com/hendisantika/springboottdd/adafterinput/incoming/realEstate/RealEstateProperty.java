@@ -1,4 +1,4 @@
-package com.hendisantika.springboottdd.adafterinput.realEstate;
+package com.hendisantika.springboottdd.adafterinput.incoming.realEstate;
 
 import java.io.Serializable;
 import java.util.Date;

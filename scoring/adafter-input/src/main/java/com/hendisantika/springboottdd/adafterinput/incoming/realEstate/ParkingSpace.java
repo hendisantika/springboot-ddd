@@ -1,4 +1,4 @@
-package com.hendisantika.springboottdd.adafterinput.realEstate;
+package com.hendisantika.springboottdd.adafterinput.incoming.realEstate;
 
 /**
  * Created by IntelliJ IDEA.
@@ -6,18 +6,17 @@ package com.hendisantika.springboottdd.adafterinput.realEstate;
  * User: hendisantika
  * Email: hendisantika@gmail.com
  * Telegram : @hendisantika34
- * Date: 2019-05-15
- * Time: 04:31
+ * Date: 2019-05-16
+ * Time: 06:31
  */
-public enum ApartmentLocation {
-    BASEMENT_FLOOR("Basement floor"),
-    GROUND_FLOOR("Ground floor"),
-    UPPER_FLOOR("Upper floor"),
-    PENTHOUSE("Penthouse");
+public enum ParkingSpace {
+    NOT_PRESENT("Not present"),
+    CARPORT("Carport"),
+    GARAGE("Garage");
 
     private final String displayName;
 
-    ApartmentLocation(String displayName) {
+    ParkingSpace(String displayName) {
         this.displayName = displayName;
     }
 
