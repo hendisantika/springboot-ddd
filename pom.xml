@@ -10,7 +10,7 @@
 
     <modules>
         <module>credit-sales</module>
-        <!--        <module>scoring</module>-->
+        <module>scoring</module>
         <module>credit-agency</module>
     </modules>
 
